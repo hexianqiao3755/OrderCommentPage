@@ -1,0 +1,192 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.zhy.autolayout.AutoLinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:fresco="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#f4f4f4"
+    android:orientation="vertical">
+
+    <include layout="@layout/include_theme_title" />
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1">
+
+        <com.zhy.autolayout.AutoLinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@android:color/white"
+            android:orientation="vertical">
+
+            <com.zhy.autolayout.AutoLinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="180px"
+                android:layout_marginTop="30px"
+                android:gravity="center_vertical"
+                android:paddingLeft="24px"
+                android:paddingRight="24px">
+
+                <ImageView
+                    android:id="@+id/sdv_goods_img"
+                    android:layout_width="120px"
+                    android:layout_height="120px"
+                    android:scaleType="center"
+                    android:src="@mipmap/ic_launcher" />
+
+                <com.zhy.autolayout.AutoLinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="120px"
+                    android:layout_weight="1"
+                    android:gravity="bottom"
+                    android:orientation="vertical"
+                    android:paddingLeft="50px">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="我要评星"
+                        android:textColor="#adadad"
+                        android:textSize="28px" />
+
+                    <com.zhy.autolayout.AutoLinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="14px"
+                        android:layout_marginTop="24px">
+
+                        <ImageView
+                            android:id="@+id/iv_comment_star_1"
+                            android:layout_width="38px"
+                            android:layout_height="38px"
+                            android:layout_marginRight="20px"
+                            android:scaleType="fitXY"
+                            android:src="@mipmap/icon_comment_star_red" />
+
+                        <ImageView
+                            android:id="@+id/iv_comment_star_2"
+                            android:layout_width="38px"
+                            android:layout_height="38px"
+                            android:layout_marginRight="20px"
+                            android:scaleType="fitXY"
+                            android:src="@mipmap/icon_comment_star_red" />
+
+                        <ImageView
+                            android:id="@+id/iv_comment_star_3"
+                            android:layout_width="38px"
+                            android:layout_height="38px"
+                            android:layout_marginRight="20px"
+                            android:scaleType="fitXY"
+                            android:src="@mipmap/icon_comment_star_red" />
+
+                        <ImageView
+                            android:id="@+id/iv_comment_star_4"
+                            android:layout_width="38px"
+                            android:layout_height="38px"
+                            android:layout_marginRight="20px"
+                            android:scaleType="fitXY"
+                            android:src="@mipmap/icon_comment_star_red" />
+
+                        <ImageView
+                            android:id="@+id/iv_comment_star_5"
+                            android:layout_width="38px"
+                            android:layout_height="38px"
+                            android:layout_marginRight="20px"
+                            android:scaleType="fitXY"
+                            android:src="@mipmap/icon_comment_star_red" />
+                    </com.zhy.autolayout.AutoLinearLayout>
+                </com.zhy.autolayout.AutoLinearLayout>
+            </com.zhy.autolayout.AutoLinearLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="4px"
+                android:background="@drawable/shape_virtual_line"
+                android:layerType="software" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="24px"
+                android:layout_marginTop="37px"
+                android:text="我有话要说:"
+                android:textColor="#adadad"
+                android:textSize="28px" />
+
+            <EditText
+                android:id="@+id/et_comment_content"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="16px"
+                android:layout_marginTop="16px"
+                android:background="@null"
+                android:gravity="top"
+                android:lineSpacingExtra="3dp"
+                android:maxHeight="228px"
+                android:maxLength="255"
+                android:minHeight="228px"
+                android:paddingLeft="24px"
+                android:paddingRight="24px"
+                android:textColor="#413e3e"
+                android:textColorHint="#adadad"
+                android:textSize="26px" />
+            <!--android:hint="宝贝怎么样? 点评可以帮助其他小朋友哦~"-->
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="4px"
+                android:background="@drawable/shape_virtual_line"
+                android:layerType="software" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="24px"
+                android:layout_marginTop="33px"
+                android:text="晒图更真实哦~"
+                android:textColor="#adadad"
+                android:textSize="28px" />
+
+            <com.zhy.autolayout.AutoLinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingBottom="34px"
+                android:paddingTop="45px">
+
+                <HorizontalScrollView
+                    android:id="@+id/hsv_comment_imgs"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:scrollbars="none" />
+
+                <ImageView
+                    android:id="@+id/iv_choose_goods_pic"
+                    android:layout_width="150px"
+                    android:layout_height="150px"
+                    android:layout_marginLeft="25px"
+                    android:background="@drawable/selector_comment_choose_bg"
+                    android:clickable="true"
+                    android:scaleType="fitXY"
+                    android:src="@mipmap/icon_choose_pic" />
+            </com.zhy.autolayout.AutoLinearLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1px"
+                android:background="#dddddd" />
+        </com.zhy.autolayout.AutoLinearLayout>
+    </ScrollView>
+
+    <TextView
+        android:id="@+id/tv_submit"
+        android:layout_width="match_parent"
+        android:layout_height="98px"
+        android:layout_gravity="bottom"
+        android:background="#ef4f3e"
+        android:clickable="true"
+        android:gravity="center"
+        android:text="提交"
+        android:textColor="@android:color/white"
+        android:textSize="30px" />
+</com.zhy.autolayout.AutoLinearLayout>

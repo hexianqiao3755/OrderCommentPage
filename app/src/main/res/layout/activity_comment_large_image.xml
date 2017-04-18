@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.zhy.autolayout.AutoLinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#413e3e"
+    android:orientation="vertical">
+
+    <com.zhy.autolayout.AutoLinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="88px"
+        android:background="#413e3e"
+        android:gravity="center_vertical">
+
+        <com.zhy.autolayout.AutoLinearLayout
+            android:id="@+id/ll_back"
+            android:layout_width="150px"
+            android:layout_height="match_parent"
+            android:paddingLeft="24px">
+
+            <ImageView
+                android:layout_width="44px"
+                android:layout_height="44px"
+                android:layout_gravity="center_vertical"
+                android:src="@mipmap/address_come_back" />
+        </com.zhy.autolayout.AutoLinearLayout>
+
+        <TextView
+            android:id="@+id/tv_current_index"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:textColor="@android:color/white"
+            android:textSize="32px" />
+
+        <com.zhy.autolayout.AutoLinearLayout
+            android:id="@+id/ll_remove"
+            android:layout_width="150px"
+            android:layout_height="match_parent"
+            android:gravity="right|center_vertical"
+            android:paddingLeft="24px"
+            android:paddingRight="24px">
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@mipmap/icon_img_delete" />
+        </com.zhy.autolayout.AutoLinearLayout>
+    </com.zhy.autolayout.AutoLinearLayout>
+
+    <com.hq.hsmwan.ordercommentpage.adapter.MultiTouchViewPager
+        android:id="@+id/vp_large_image"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_gravity="center"
+        android:layout_weight="1" />
+</com.zhy.autolayout.AutoLinearLayout>
