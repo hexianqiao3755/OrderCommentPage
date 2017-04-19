@@ -1,11 +1,8 @@
 package com.hq.hsmwan.ordercommentpage.activity;
 
-import android.Manifest;
 import android.content.Context;
 import android.content.Intent;
-import android.content.pm.PackageManager;
 import android.net.Uri;
-import android.os.Build;
 import android.text.Editable;
 import android.text.TextUtils;
 import android.text.TextWatcher;
@@ -20,11 +17,11 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.facebook.drawee.view.SimpleDraweeView;
+import com.hq.hsmwan.ordercommentpage.R;
 import com.hq.hsmwan.ordercommentpage.tools.BitmapUtils;
 import com.hq.hsmwan.ordercommentpage.tools.CleanCacheManager;
 import com.hq.hsmwan.ordercommentpage.tools.FileUtils;
 import com.hq.hsmwan.ordercommentpage.tools.KeyBoardManager;
-import com.hq.hsmwan.ordercommentpage.R;
 import com.zhy.autolayout.utils.AutoUtils;
 
 import java.util.ArrayList;
@@ -47,7 +44,6 @@ public class MainActivity extends BaseActivity implements View.OnClickListener, 
 
     public static final String KEY_IMAGE_LIST = "imageList";
     public static final String KEY_CURRENT_INDEX = "currentIndex";
-
     private final int REQUEST_CODE_PICTURE = 1;
     private final int RESULT_CODE_LARGE_IMAGE = 1;
     //晒单图片最多选择四张
@@ -127,13 +123,7 @@ public class MainActivity extends BaseActivity implements View.OnClickListener, 
 
             case R.id.iv_choose_goods_pic:
                 //选择晒单图片, 调出图片选择界面
-                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M && checkSelfPermission(Manifest.permission_group.STORAGE) == PackageManager.PERMISSION_DENIED) {
-                    MultiImageSelector.create().count(MAX_PIC - imageUrls.size()).start(this, REQUEST_CODE_PICTURE);
-                    requestPermissions(new String[]{Manifest.permission_group.STORAGE}, 0);
-                } else {
-                    //权限已经开启, 调出图片选择界面
-                    MultiImageSelector.create().single().start(this, REQUEST_CODE_PICTURE);
-                }
+                MultiImageSelector.create().count(MAX_PIC - imageUrls.size()).start(this, REQUEST_CODE_PICTURE);
                 break;
 
             case R.id.iv_comment_star_1:
@@ -208,7 +198,7 @@ public class MainActivity extends BaseActivity implements View.OnClickListener, 
             sdv_pic.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    //点击轮播图进入图片详情页
+                    //点击HorizontalScrollView里的晒单图进入图片详情页
                     Intent intent = new Intent(context, CommentLargeImageActivity.class);
                     intent.putExtra(KEY_CURRENT_INDEX, finalI);
                     intent.putStringArrayListExtra(KEY_IMAGE_LIST, (ArrayList<String>) paths);

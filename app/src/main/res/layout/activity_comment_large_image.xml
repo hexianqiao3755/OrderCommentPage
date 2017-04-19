@@ -48,7 +48,7 @@
         </com.zhy.autolayout.AutoLinearLayout>
     </com.zhy.autolayout.AutoLinearLayout>
 
-    <com.hq.hsmwan.ordercommentpage.adapter.MultiTouchViewPager
+    <com.hq.hsmwan.ordercommentpage.view.MultiTouchViewPager
         android:id="@+id/vp_large_image"
         android:layout_width="match_parent"
         android:layout_height="0dp"

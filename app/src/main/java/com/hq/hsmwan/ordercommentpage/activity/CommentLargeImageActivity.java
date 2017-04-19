@@ -44,8 +44,7 @@ public class CommentLargeImageActivity extends BaseActivity implements ViewPager
             vp_large_image.setAdapter(adapter = new LargeImageAdapter(this, imgUrls));//设置晒单图显示
             vp_large_image.setOffscreenPageLimit(imgUrls.size());//预加载的数量为图片集合的长度
             vp_large_image.setCurrentItem(currentIndex);
-            tv_current_index.setText(++currentIndex + " / " + imgUrls.size());
-            currentIndex--;
+            tv_current_index.setText(currentIndex + 1 + " / " + imgUrls.size());
         }
     }
 
@@ -99,6 +98,7 @@ public class CommentLargeImageActivity extends BaseActivity implements ViewPager
                     imgUrls.clear();
                     onBackPressed();
                 } else {
+                    //删除指定索引的图片
                     removeImage(currentIndex);
                 }
                 break;
@@ -127,9 +127,16 @@ public class CommentLargeImageActivity extends BaseActivity implements ViewPager
      * @param index
      */
     private void setImageTitle(int index) {
-        if ((index == 0 || imgUrls.size() == 1) && (index == imgUrls.size() - 1)) {
+        //删除图片路径后
+        if (index == 0 || imgUrls.size() == 1) {
+            // 索引 == 0 || 图片集合只剩一张图
+            // 就把索引值固定为1
             index = 1;
+        } else if (index == imgUrls.size() - 1) {
+            // 当前索引 == 图片集合的最后一张
+            // 就不做任何处理
         } else {
+            //否则就把索引+1便于显示
             index += 1;
         }
         tv_current_index.setText(index + " / " + imgUrls.size());
