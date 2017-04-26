@@ -1,8 +1,8 @@
-##一、简介
+## 一、简介
 评价晒单页面, 一般商城类的APP都是必不可少的
 今天就来简单的实现一下, 只有两个`Activity`, 晒单、图片显示`Activity`
 
-##二、使用
+## 二、使用
 > * 开发工具:
  * `Android Studio`
 
@@ -24,12 +24,12 @@
 ![example.gif](https://github.com/hexianqiao3755/OrderCommentPage/blob/master/gif/GIF_20170418_153324.gif)
 
 
-####1.MainActivity
+#### 1.MainActivity
 点击相机后执行`MultiImageSelector.create().count(MAX_PIC - imageUrls.size()).start(this, REQUEST_CODE_PICTURE);`
 调出选择图片界面, 选择完成会进入`onActivityResult`方法
 我们就在该方法中处理选中的晒单图集合
 回调的`onActivityResult`后核心的处理在`handleCommentPicList`方法里
-````
+```
     public static final String KEY_IMAGE_LIST = "imageList";
     public static final String KEY_CURRENT_INDEX = "currentIndex";
     private final int REQUEST_CODE_PICTURE = 1;
@@ -149,7 +149,7 @@ public class CleanCacheManager {
 }
 ```
 
-####2.CommentLargeImageActivity
+#### 2.CommentLargeImageActivity
 获取点击图片的索引, 作用显示于当前索引图片
 获取传来的图片集合, 并设置到`ViewPager`的适配器
 
@@ -233,7 +233,7 @@ case R.id.ll_remove:
     }
 ```
 
-####3.LargeImageAdapter
+#### 3.LargeImageAdapter
 适配器的代码由于使用到图片缩放框架, 所以大部分代码都是固定写法
 ```
 public class LargeImageAdapter extends PagerAdapter {
