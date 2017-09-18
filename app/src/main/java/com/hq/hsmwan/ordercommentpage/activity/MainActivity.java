@@ -1,8 +1,14 @@
 package com.hq.hsmwan.ordercommentpage.activity;
 
+import android.app.Activity;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.pm.PackageManager;
 import android.net.Uri;
+import android.provider.Settings;
+import android.support.annotation.NonNull;
+import android.support.v7.app.AlertDialog;
 import android.text.Editable;
 import android.text.TextUtils;
 import android.text.TextWatcher;
@@ -22,6 +28,7 @@ import com.hq.hsmwan.ordercommentpage.tools.BitmapUtils;
 import com.hq.hsmwan.ordercommentpage.tools.CleanCacheManager;
 import com.hq.hsmwan.ordercommentpage.tools.FileUtils;
 import com.hq.hsmwan.ordercommentpage.tools.KeyBoardManager;
+import com.hq.hsmwan.ordercommentpage.tools.PermissionCheckUtil;
 import com.zhy.autolayout.utils.AutoUtils;
 
 import java.util.ArrayList;
@@ -122,8 +129,10 @@ public class MainActivity extends BaseActivity implements View.OnClickListener, 
                 break;
 
             case R.id.iv_choose_goods_pic:
-                //选择晒单图片, 调出图片选择界面
-                MultiImageSelector.create().count(MAX_PIC - imageUrls.size()).start(this, REQUEST_CODE_PICTURE);
+                //检查是否有打开照相机和文件读写的权限
+                if (PermissionCheckUtil.checkCameraAndExternalStoragePermission(this))
+                    //权限已经开启, 调出图片选择界面
+                    MultiImageSelector.create().count(MAX_PIC - imageUrls.size()).start(this, REQUEST_CODE_PICTURE);
                 break;
 
             case R.id.iv_comment_star_1:
@@ -152,6 +161,18 @@ public class MainActivity extends BaseActivity implements View.OnClickListener, 
         for (int i = 0, len = starList.size(); i < len; i++) {
             starList.get(i).setImageResource(i < currentStarCount ? R.mipmap.icon_comment_star_red : R.mipmap.icon_comment_star_gray);
         }
+    }
+
+    @Override
+    public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
+        if (requestCode == 0) {
+            if (grantResults[0] == PackageManager.PERMISSION_GRANTED) {
+                //权限允许
+            } else {
+                openSettingActivity(this, "您没有打开相机或文件存储权限，请在设置中打开授权");
+            }
+        }
+        super.onRequestPermissionsResult(requestCode, permissions, grantResults);
     }
 
     @Override
@@ -239,6 +260,29 @@ public class MainActivity extends BaseActivity implements View.OnClickListener, 
     @Override
     public void afterTextChanged(Editable s) {
 
+    }
+
+    private void openSettingActivity(final Activity activity, String message) {
+        showMessageOKCancel(activity, message, new DialogInterface.OnClickListener() {
+
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                //打开权限设置页面
+                Intent intent = new Intent();
+                intent.setAction(Settings.ACTION_APPLICATION_DETAILS_SETTINGS);
+                intent.setData(Uri.fromParts("package", activity.getPackageName(), null));
+                startActivity(intent);
+            }
+        });
+    }
+
+    private void showMessageOKCancel(Activity context, String message, DialogInterface.OnClickListener okListener) {
+        new AlertDialog.Builder(context)
+                .setMessage(message)
+                .setPositiveButton("确定", okListener)
+                .setNegativeButton("取消", null)
+                .create()
+                .show();
     }
 }
 

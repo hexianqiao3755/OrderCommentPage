@@ -24,7 +24,9 @@ dependencies {
     compile 'com.android.support:appcompat-v7:25.3.0'
 
     /** 选择图片(照片)第三方框架 */
-    compile 'com.github.lovetuzitong:MultiImageSelector:1.2'
+    //compile 'com.github.lovetuzitong:MultiImageSelector:1.2'
+    //选择图片(照片)框架,解决7.0打开相机报错问题
+    compile 'com.hx.multi-image-selector:multi-image-selector:1.2.1'
     /** 第三方屏幕适配  */
     compile 'com.zhy:autolayout:1.4.5'
     /** 第三方图片缓存              */
