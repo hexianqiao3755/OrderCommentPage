@@ -1,19 +1,11 @@
-## 一、简介
-评价晒单页面, 一般商城类的APP都是必不可少的
+### 评价晒单页面, 一般商城类的APP都是必不可少的
+---
 今天就来简单的实现一下, 只有两个`Activity`, 晒单、图片显示`Activity`
 
-## 二、使用
-> * 开发工具:
- * `Android Studio`
 
-> * 使用的第三方框架:
- * [Fresco](https://github.com/facebook/fresco)  图片加载缓存
- * [AndroidAutoLayout](https://github.com/hongyangAndroid/AndroidAutoLayout)   屏幕适配
- * [MultiImageSelector](https://github.com/lovetuzitong/MultiImageSelector)   仿照微信的选择图片(照片)
- * [PhotoDraweeview](https://github.com/ongakuer/PhotoDraweeView)   图片缩放(配合`Fresco`使用)
- * [PhotoView](https://github.com/chrisbanes/PhotoView)   图片缩放(不使用`Fresco`时使用)
 
 配置如下
+
 ![build.gradle](https://github.com/hexianqiao3755/OrderCommentPage/blob/master/gif/2112446-d0ca6a63443aac4c.png)
 
 布局没有太大难度, 大家照着依葫芦画瓢就写出来了, 就不做介绍了
@@ -21,6 +13,7 @@
 **废话不多说, 先看效果图**
 
 效果图可能加载有点慢 耐心等待
+
 ![example.gif](https://github.com/hexianqiao3755/OrderCommentPage/blob/master/gif/GIF_20170418_153324.gif)
 
 
@@ -311,3 +304,35 @@ public class LargeImageAdapter extends PagerAdapter {
     }
 }
 ```
+
+
+## 反馈
+欢迎各位提issues和PRs
+
+## 第三方库
+- [Fresco](https://github.com/facebook/fresco)
+- [AndroidAutoLayout](https://github.com/hongyangAndroid/AndroidAutoLayout)
+- [Fresco](https://github.com/facebook/fresco)  
+- [AndroidAutoLayout](https://github.com/hongyangAndroid/AndroidAutoLayout)   
+- [MultiImageSelector](https://github.com/lovetuzitong/MultiImageSelector)   
+- [PhotoDraweeview](https://github.com/ongakuer/PhotoDraweeView)   
+- [PhotoView](https://github.com/chrisbanes/PhotoView)   
+
+## 联系我
+_hexianqiao3755@gmail.com_
+
+## 许可证
+
+    Copyright 2017 He Qiao
+
+    Licensed under the Apache License, Version 2.0 (the "License");
+    you may not use this file except in compliance with the License.
+    You may obtain a copy of the License at
+
+       http://www.apache.org/licenses/LICENSE-2.0
+
+    Unless required by applicable law or agreed to in writing, software
+    distributed under the License is distributed on an "AS IS" BASIS,
+    WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+    See the License for the specific language governing permissions and
+    limitations under the License.
